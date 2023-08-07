@@ -14,25 +14,19 @@ export default function SignupPage() {
     const [loading, setLoading] = React.useState(false)
     
     const onSignup = async () => {
-        try{
+        await axios.post("/api/users/signup", user).then((res) => {
+            console.log(res.data)
             setLoading(true)
-            const res = await axios.post("/api/users/signup", user)
-            console.log("Signup success "+res.data);
             router.push("/login")
-            toast.success("Signup success")
+            toast.success("SignUp Successfull")
             
-            
-        }
-        catch(err:any){
-            console.log("Signup problem "+err.message)
-            toast.error(err.message)
-            
-
-            
-        }
-        finally{
+        }).catch((err) => {
+            console.log(err.response.data.error)
+            toast.error(err.response.data.error)
+        })
+        .finally(() => {
             setLoading(false)
-        }
+        })
 
     }
     useEffect(() => {
@@ -60,7 +54,7 @@ export default function SignupPage() {
             </button>
 
             <Link className="text-blue-700" href="/login">visit Login Page?</Link>
-             <Toaster>
+            <Toaster>
                 {(t) => (
                     <ToastBar
                     toast={t}
@@ -70,7 +64,7 @@ export default function SignupPage() {
                     }}
                     />
                 )}
-                </Toaster>;
+            </Toaster>
         </div>
     );
 }

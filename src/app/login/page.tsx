@@ -14,21 +14,19 @@ export default function LoginPage() {
     const [loading, setLoading] = React.useState(false)
     const onLogin = async () => {
         
-        try{
+        await axios.post("/api/users/login", user).then((res) => {
+            console.log(res.data)
             setLoading(true)
-            const res = await axios.post("/api/users/login", user)
-            console.log("Login success "+res.data);
-                router.push("/profile")
-                toast.success("Login success")
+            router.push("/profile")
+            toast.success("Login Successfull")
             
-        }
-        catch(err:any){
-            console.log("Login Error from catch "+err.response)
-         
-        }
-        finally{
+        }).catch((err) => {
+            console.log(err.response.data.error)
+            toast.error(err.response.data.error)
+        })
+        .finally(() => {
             setLoading(false)
-        }
+        })
     }
     useEffect(() => {
         if(user.email.length>0 && user.password.length>0){
