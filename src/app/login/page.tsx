@@ -13,21 +13,23 @@ export default function LoginPage() {
     const [button, setButton] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
     const onLogin = async () => {
-        
-        setLoading(true)
-        await axios.post("/api/users/login", user).then((res) => {
-            console.log(res.data)
-            router.push("/profile")
-            toast.success("Login Successfull")
-            
-        }).catch((err) => {
-            console.log(err.response.data.error)
-            toast.error(err.response.data.error)
-        })
-        .finally(() => {
+       
+
+            setLoading(true)
+            await axios.post("/api/users/login", user).then((res) => {
+                console.log(res.data)
+                router.push("/profile")
+                toast.success("Login Successfull")
+                
+            }).catch((err) => {
+                console.log(err.response.data.error)
+                toast.error(err.response.data.error)
+            })
+            .finally(() => {
             setLoading(false)
-        })
-    }
+            })
+    
+}
     useEffect(() => {
         if(user.email.length>0 && user.password.length>0){
             setButton(false)}
