@@ -14,9 +14,9 @@ export default function SignupPage() {
     const [loading, setLoading] = React.useState(false)
     
     const onSignup = async () => {
+        setLoading(true)
         await axios.post("/api/users/signup", user).then((res) => {
             console.log(res.data)
-            setLoading(true)
             router.push("/login")
             toast.success("SignUp Successfull")
             

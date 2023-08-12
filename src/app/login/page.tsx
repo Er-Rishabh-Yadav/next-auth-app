@@ -14,9 +14,9 @@ export default function LoginPage() {
     const [loading, setLoading] = React.useState(false)
     const onLogin = async () => {
         
+        setLoading(true)
         await axios.post("/api/users/login", user).then((res) => {
             console.log(res.data)
-            setLoading(true)
             router.push("/profile")
             toast.success("Login Successfull")
             
@@ -61,7 +61,7 @@ export default function LoginPage() {
                     }}
                     />
                 )}
-                </Toaster>
+            </Toaster>
         </div>
     );
 }
