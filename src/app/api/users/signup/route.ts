@@ -2,6 +2,7 @@ import {connect} from "@/dbconfig/dbconfig";
 import User from "@/models/userModels";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import { sendMail } from "@/helpers/mailer";
 
 
 connect()
@@ -29,7 +30,8 @@ export async function POST(request: NextRequest){
                 password: hashPassword
             })
             const saveduser = await newUser.save()
-            console.log(saveduser)
+            console.log("From Sigup Api",saveduser)
+             await sendMail({email: email, emailType: "VERIFY", userId: newUser._id})
             return NextResponse.json({message: "User created successfully",success: true, saveduser}, {status: 200});
         }
     }

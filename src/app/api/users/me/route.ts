@@ -13,7 +13,7 @@ export async function GET(request: NextRequest){
         }
         else{
             console.log("user found")
-            const res =  NextResponse.json({message:"user found",user: user})
+            const res =  NextResponse.json({message:"User found",user: user})
             
             return res;
         }
