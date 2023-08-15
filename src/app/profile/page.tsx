@@ -46,7 +46,8 @@ export default function ProfilePage() {
         
         <button className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" onClick={getProfile}>Get Details</button>
         
-        <button
+        <a
+            // href="/login"
           onClick={logout}
           className="cursor-pointer m-5 group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-600 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
@@ -61,7 +62,7 @@ export default function ProfilePage() {
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             You are going to Logout!
           </p>
-        </button>
+        </a>
         
         </div></div>
         <Toaster>
