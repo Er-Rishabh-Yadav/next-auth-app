@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/component/footer";
 import axios from "axios";
 import Link from "next/link";
 import React,{useState,useEffect} from "react";
@@ -39,6 +40,7 @@ export default function VerifyEmailPage() {
             {error && <p className="bg-red-500 m-5 p-4 rounded font-bold text-xl text-center">There was an error verifying your email</p>}
             {verified && <p className="bg-green-500 m-5 p-4 rounded font-bold text-xl text-center">Your email has been verified</p>}
             </div>
+            <Footer/>
         </div>
     );
 }

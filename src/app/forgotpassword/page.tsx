@@ -4,6 +4,7 @@ import axios from "axios";
 import React,{useState,useEffect} from "react";
 import {useRouter} from "next/navigation";
 import { toast } from "react-hot-toast";
+import Footer from "@/component/footer";
 export default function ResetPassword() {
     const [error,setError] = useState(false);
     const [token,setToken] = useState("");
@@ -41,7 +42,7 @@ export default function ResetPassword() {
     },[token]);
 
     return (
-        <div className="flex  items-center justify-center min-h-screen bg-slate-800 py-2">
+        <div className="flex  flex-col items-center justify-center min-h-screen bg-slate-800 py-2">
             
             <div className="bg-gray-500 p-4 rounded items-center justify-center text-white">
                 
@@ -56,10 +57,11 @@ export default function ResetPassword() {
                     <label className="p-3" htmlFor="Password">Password :</label>
                     <input className="p-2 rounded text-black" type="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
                 </div>
-                    <button className="bg-slate-700 hover:bg-green-500 p-2 m-4 border-slate-300" onClick={resetPassword}>Reset Password</button>                
+                    <button className="bg-slate-600 hover:bg-green-500 p-2 m-4 border-slate-300" onClick={resetPassword}>Reset Password</button>                
             </div>
                 }
             </div>
+            <Footer/>
         </div>
 
         

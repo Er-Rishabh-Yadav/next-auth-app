@@ -1,5 +1,7 @@
 "use client";
 import { ToastBar, Toaster } from "react-hot-toast";
+import Link from "next/link";
+import Footer from "@/component/footer"
 
 export default function UserProfile({params}:any) {
     return(
@@ -11,7 +13,7 @@ export default function UserProfile({params}:any) {
         <h2 className="p-2 rounded-xl m-4 bg-orange-700 text-white text-center">ID : {params.id}</h2>
         
         
-        <a
+        <Link
           href="/"
           className="cursor-pointer m-5 group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-600 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
@@ -28,7 +30,7 @@ export default function UserProfile({params}:any) {
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Checkout the home page!
           </p>
-        </a>
+        </Link>
         
         </div></div>
         <Toaster>
@@ -42,7 +44,11 @@ export default function UserProfile({params}:any) {
                     />
                 )}
         </Toaster>
+
+        <Footer />
         </div>
+
+        
     
     );
 }

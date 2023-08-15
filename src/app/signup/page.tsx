@@ -4,6 +4,7 @@ import React, { useEffect } from "react"
 import { useRouter} from "next/navigation"
 import axios from "axios"
 import toast, {Toaster,ToastBar} from "react-hot-toast";
+import Footer from "@/component/footer";
 
 
 export default function SignupPage() {
@@ -38,7 +39,7 @@ export default function SignupPage() {
     },[user])
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-800 py-2">
-            <h1 className="fixed text-2xl  tracking-wider left-0 top-0 flex w-full justify-center border-b border-slate-300 pb-6 pt-8  uppercase font-bold text-yellow-500 m-2">{loading ? "Processing" : "Sign up"}</h1>
+            <h1 className="fixed text-2xl  tracking-wider left-0 top-0 flex w-full justify-center border-b border-slate-300 pb-6 pt-8  uppercase font-bold text-yellow-500">{loading ? "Processing" : "Sign up"}</h1>
             <hr />
 
             <div className="bg-gray-500 p-4 rounded">
@@ -68,6 +69,7 @@ export default function SignupPage() {
             <Link className="text-blue-700" href="/login">visit Login Page?</Link>
             </div>
             </div>
+            <Footer/>
             <Toaster>
                 {(t) => (
                     <ToastBar

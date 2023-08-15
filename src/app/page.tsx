@@ -1,7 +1,8 @@
 import Image from 'next/image'
-
+import Footer from '@/component/footer';
 // pages/index.js
 import React from 'react';
+import Link from 'next/link';
 const TopicSection = ({ title, content, imageSrc, alt }:any) => (
   <div className="flex items-center mt-6">
     <div className="w-1/2">
@@ -17,7 +18,7 @@ const TopicSection = ({ title, content, imageSrc, alt }:any) => (
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-slate-800 py-10">
-      <div className="max-w-4xl mx-auto p-6 bg-gray-400 rounded shadow-md">
+      <div className="max-w-4xl mx-auto p-6 bg-gray-500 rounded shadow-md">
         <h1 className="text-3xl font-semibold mb-4 text-white">Welcome to our Authenticated & JWT Secure App</h1>
         <p className="text-gray-200">
           In this we use some concept that, we'll explain the concepts of authorization, Next.js,
@@ -60,8 +61,12 @@ const HomePage = () => {
         imageSrc="/mailtrap.jpg"
         alt="Mailtrap"
         />
+
+        <div className="flex items-center mt-6">
+          <Link className="p-3 m-4 bg-slate-400 text-white hover:bg-yellow-600" href="/profile">Go to Profile</Link>
+        </div>
       </div>
-      
+      <Footer/>
     </div>
   );
 };

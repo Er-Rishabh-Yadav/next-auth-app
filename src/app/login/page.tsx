@@ -4,6 +4,7 @@ import React, { useEffect } from "react"
 import { useRouter} from "next/navigation"
 import axios from "axios"
 import toast ,{ Toaster,ToastBar}from "react-hot-toast";
+import Footer from "@/component/footer";
 
 
 export default function LoginPage() {
@@ -82,6 +83,7 @@ export default function LoginPage() {
             </Toaster>
         </div>
         
+                    <Footer/>
         </div>
     );
 }

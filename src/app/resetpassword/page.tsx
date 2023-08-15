@@ -4,6 +4,7 @@ import React, { useEffect } from "react"
 import { useRouter} from "next/navigation"
 import axios from "axios"
 import toast ,{ Toaster,ToastBar}from "react-hot-toast";
+import Footer from "@/component/footer";
 
 
 export default function ForgotPassword() {
@@ -38,7 +39,7 @@ export default function ForgotPassword() {
         }
     })
     return (
-        <div className="flex  items-center justify-center min-h-screen bg-slate-800 py-2">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-800 py-2">
             <div className="bg-gray-500 p-4 rounded items-center justify-center text-white">
 
             <h1 className="fixed text-2xl  tracking-wider left-0 top-0 flex w-full justify-center border-b font-bold text-yellow-500 border-slate-300   pb-6 pt-8  uppercase ">{loading ? "Processing" : "Reset Password"}</h1>
@@ -74,6 +75,8 @@ export default function ForgotPassword() {
                     />
                 )}
             </Toaster>
+            
+        <Footer/>
         </div>
     );
 }

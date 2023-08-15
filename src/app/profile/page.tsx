@@ -4,6 +4,7 @@ import axios from "axios"
 import toast, { ToastBar, Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Footer from "@/component/footer";
 
 export default function ProfilePage() {
     const router = useRouter();
@@ -76,6 +77,7 @@ export default function ProfilePage() {
                     />
                 )}
         </Toaster>
+        <Footer/>
         </div>
     );
 }
