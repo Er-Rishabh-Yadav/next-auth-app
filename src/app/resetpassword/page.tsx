@@ -6,20 +6,20 @@ import axios from "axios"
 import toast ,{ Toaster,ToastBar}from "react-hot-toast";
 
 
-export default function LoginPage() {
+export default function ForgotPassword() {
     const router = useRouter()
    
-    const [user, setUser] = React.useState({ email: "", password: ""})
+    const [email, setEmail] = React.useState("")
     const [button, setButton] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
-    const onLogin = async () => {
+    const onReset = async () => {
        
 
             setLoading(true)
-            await axios.post("/api/users/login", user).then((res) => {
+            await axios.post("/api/users/forgotpassword",{email}).then((res) => {
                 console.log(res.data)
-                router.push("/profile")
-                toast.success("Login Successfull")
+                router.push("/login")
+                toast.success("Reset Password Link Sent to your Email")
                 
             }).catch((err) => {
                 console.log(err.response.data.error)
@@ -31,7 +31,7 @@ export default function LoginPage() {
     
 }
     useEffect(() => {
-        if(user.email.length>0 && user.password.length>0){
+        if(email.length>0 ){
             setButton(false)}
         else{
             setButton(true)
@@ -43,18 +43,15 @@ export default function LoginPage() {
             <hr />
             
             <label className="" htmlFor="email">Email</label>
-            <input className="p-2 border rounded-xl border-gray-300" type="text" id="email" value={user.email} onChange={(e)=> setUser({...user,email:e.target.value})} placeholder="Email"/>
+            <input className="p-2 border rounded-xl border-gray-300" type="text" id="email" value={email} onChange={(e)=> setEmail(e.target.value)} placeholder="Email"/>
             
-            <label className="" htmlFor="password">Password</label>
-            <input className="p-2 border rounded-xl border-gray-300" type="password" id="password" value={user.password} onChange={(e)=> setUser({...user,password:e.target.value})} placeholder="Password"/>
-
-            <button className="p-2 border border-gray-300 rounded-lg m-4 focus:outline-none focus:border-gray-600" onClick={onLogin}>
-                {button ? "Please fill all the fields" : "Login"}
+            <button className="p-2 border border-gray-300 rounded-lg m-4 focus:outline-none focus:border-gray-600" onClick={onReset}>
+                {button ? "Please fill all the fields" : "Reset Password"}
             </button>
 
             <Link className="text-blue-700" href="/signup">Visit Signup Page?</Link>
             <span> | </span>
-            <Link className="text-blue-700" href="/resetpassword">Reset Password?</Link>
+            <Link className="text-blue-700" href="/Login">Login</Link>
             <Toaster>
                 {(t) => (
                     <ToastBar
