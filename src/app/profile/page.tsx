@@ -36,12 +36,14 @@ export default function ProfilePage() {
         }
     }
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-800 text-white py-2">
-        <h1 className="fixed font-bold text-2xl tracking-widest left-0 top-0 flex w-full justify-center border-b border-slate-300 bg-gradient-to-b from-slate-200 pb-6 pt-8 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-800/30 dark:from-inherit uppercase " >Profile</h1>
-        <hr />
-        <p>Profile page</p>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-800 text-green-600 py-2">
+        <div className="bg-gray-500 p-4 rounded">
+        <div className="flex flex-col text-2xl justify-center items-center text-center font-bold text-yellow-500 tracking-wider uppercase">
+        <h1 className="fixed font-bold text-2xl tracking-widest left-0 top-0 flex w-full justify-center border-b  border-slate-300 uppercase pb-6 pt-8" >Profile</h1>
         
         <h2 className="p-2 rounded-3xl m-4 bg-orange-700 text-white text-center">{data==='nothing'? "Nothing": <Link href={`/profile/${data}`}>{data}</Link>}</h2>
+        
+        <button className="bg-gray-300 text-white p-2 m-3" onClick={getProfile}>Get Details</button>
         
         <a
           onClick={logout}
@@ -62,7 +64,7 @@ export default function ProfilePage() {
           </p>
         </a>
         
-        <button onClick={getProfile}>Get Details</button>
+        </div></div>
         <Toaster>
                 {(t) => (
                     <ToastBar
@@ -73,7 +75,7 @@ export default function ProfilePage() {
                     }}
                     />
                 )}
-            </Toaster>
+        </Toaster>
         </div>
     );
 }
