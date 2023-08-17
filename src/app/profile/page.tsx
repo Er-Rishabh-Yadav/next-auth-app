@@ -44,26 +44,16 @@ export default function ProfilePage() {
         
         <h2 className="p-2 rounded-3xl m-4 bg-green-700 text-white text-center">{data==='nothing'? "Nothing": <Link href={`/profile/${data}`}>{data}</Link>}</h2>
         
+        <div className="flex flex-col items-center justify-center text-green-600 py-2">
         <button className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" onClick={getProfile}>Get Details</button>
-        
-        <a
-            // href="/login"
-          onClick={logout}
-          className="cursor-pointer m-5 group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-600 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-
-
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Logout{' '}
+       
+        <button className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" onClick={logout}>
+        Logout{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            You are going to Logout!
-          </p>
-        </a>
-        
+        </button>
+        </div>
         </div></div>
         <Toaster>
                 {(t) => (
