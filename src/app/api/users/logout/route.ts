@@ -1,4 +1,4 @@
-import { stat } from "fs";
+'use server'
 import { NextResponse } from "next/server";
 
 export async function GET(){
