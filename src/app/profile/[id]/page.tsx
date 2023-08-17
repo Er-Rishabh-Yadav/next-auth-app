@@ -2,19 +2,11 @@
 import { ToastBar, Toaster } from "react-hot-toast";
 import Link from "next/link";
 import Footer from "@/component/footer"
-import { useRouter } from "next/navigation";
-import { use } from "react";
+
 
 export default function UserProfile({params}:any) {
 
-    const profile = async () => {
-      const route = useRouter();
-      route.push("/profile")
-    }
-    const goHome = async () => {
-      const route = useRouter();
-      route.push("/")
-    }
+    
     return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-800 text-green-600 py-2">
         <div className="bg-gray-500 p-4 rounded">
@@ -23,11 +15,11 @@ export default function UserProfile({params}:any) {
         
         <h2 className="p-2 rounded-xl m-4 bg-orange-300 text-white text-center">ID : {params.id}</h2>
         
-       < div className="flex flex-col items-center justify-center text-green-600 py-2">
-        <Link className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" href={'/profile'}>
+       < div className="flex flex-row m-2 items-center justify-center text-green-600 py-2">
+        <Link className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" href='/profile'>
         BACK
         </Link>
-        <Link className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" href={'/'}>
+        <Link className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" href='/'>
         Go To Home{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;

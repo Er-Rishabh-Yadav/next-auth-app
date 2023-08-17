@@ -44,7 +44,7 @@ export default function ProfilePage() {
         
         <h2 className="p-2 rounded-3xl m-4 bg-green-700 text-white text-center">{data==='nothing'? "Nothing": <Link href={`/profile/${data}`}>{data}</Link>}</h2>
         
-        <div className="flex flex-col items-center justify-center text-green-600 py-2">
+        <div className="flex flex-row items-center m-2 justify-center text-green-600 py-2">
         <button className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" onClick={getProfile}>Get Details</button>
        
         <button className="bg-slate-600 border-green-400 hover:border-2 text-white p-2 m-4" onClick={logout}>
