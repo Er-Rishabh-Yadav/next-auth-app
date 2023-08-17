@@ -39,6 +39,6 @@ export const sendMail = async ({email,emailType,userId}:any) => {
 
   }
     catch(err:any){
-        throw new Error(err.message);
+        throw new Error("Mailer Error ->"+err.message);
     }
 }
