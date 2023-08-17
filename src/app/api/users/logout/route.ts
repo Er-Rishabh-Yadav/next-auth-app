@@ -12,7 +12,6 @@ export async function GET(){
 
         //delete token from cookie
 
-        response.cookies.delete('token')
         response.cookies.set('token', "", {httpOnly: true,expires: new Date(0),domain:process.env.NODE_ENV==='development'?'.localhost':'.next-auth-app-iota.vercel.app'});
         return response;
     } catch (error:any) {

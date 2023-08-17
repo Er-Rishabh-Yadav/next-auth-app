@@ -10,15 +10,15 @@ export function middleware(request: NextRequest) {
     // console.log(token+" "+isPublic)
     // console.log(request.cookies)
     if(path==='/profile/:id*' && token){
-        return NextResponse.redirect(new URL('/profile/:id', request.url))
+        return NextResponse.redirect(new URL('/profile/:id', request.nextUrl))
     }
     // if you have token no need to go to any public page
     if(isPublic && token){
-        return NextResponse.redirect(new URL('/', request.url))
+        return NextResponse.redirect(new URL('/', request.nextUrl))
     }
 
     if(!isPublic && !token){
-        return NextResponse.redirect(new URL('/login', request.url))
+        return NextResponse.redirect(new URL('/login', request.nextUrl))
     }
 
 
