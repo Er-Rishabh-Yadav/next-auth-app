@@ -11,7 +11,7 @@ export default function ProfilePage() {
     const [data , setData] = useState("nothing")
     const logout = async () => {
         try{
-            await axios.get(`/api/users/logout${Date.now()}`)
+            await axios.get(`/api/users/logout`)
             console.log("Logout success ");
             router.push("/login")
             toast.success("Logout Successfull")
@@ -26,7 +26,7 @@ export default function ProfilePage() {
 
     const getProfile = async () => {
         try{
-            const res = await axios.get(`/api/users/me${Date.now()}`)
+            const res = await axios.get(`/api/users/me`)
             console.log("Profile success "+res.data.user._id);
             setData(res.data.user._id);
         }
