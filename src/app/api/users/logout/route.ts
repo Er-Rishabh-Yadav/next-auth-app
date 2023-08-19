@@ -8,10 +8,6 @@ export async function GET(){
                 message: "Logged out successfully",
                 success: true
             });
-        //clearing the token
-
-        //delete token from cookie
-
         response.cookies.set("token", "", {httpOnly: true,expires: new Date(0)});
         return response;
     } catch (error:any) {

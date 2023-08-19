@@ -9,9 +9,9 @@ export function middleware(request: NextRequest) {
     const token = request.cookies.get('token')?.value || ''
     // console.log(token+" "+isPublic)
     // console.log(request.cookies)
-    if(path==='/profile/:id*' && token){
-        return NextResponse.redirect(new URL('/profile/:id', request.nextUrl))
-    }
+    // if(path==='/profile/:id*' && token){
+    //     return NextResponse.redirect(new URL('/profile/:id', request.nextUrl))
+    // }
     // if you have token no need to go to any public page
     if(isPublic && token){
         return NextResponse.redirect(new URL('/', request.nextUrl))
