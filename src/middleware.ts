@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname
 
-    const isPublic = path === '/login' || path === '/signup' || path==='/verifyemail'
+    const isPublic = path === '/login' || path === '/signup' || path==='/verifyemail' || path === '/' 
     // const isPrivate =  path === '/profile/:id'
     const token = request.cookies.get('token')?.value || ''
     // console.log(token+" "+isPublic)
@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
     // }
     // if you have token no need to go to any public page
     if(isPublic && token){
-        return NextResponse.redirect(new URL('/', request.nextUrl))
+        return NextResponse.redirect(new URL('/profile', request.nextUrl))
     }
 
     if(!isPublic && !token){
