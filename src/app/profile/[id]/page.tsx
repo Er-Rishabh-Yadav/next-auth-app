@@ -17,9 +17,9 @@ export default function UserProfile({ params }: any) {
                         <Link className="bg-orange-600 hover:bg-yellow-500 text-white p-2 m-4" href='/profile'>
                             BACK
                         </Link>
-                        <Link className="bg-slate-300  hover:bg-green-400 text-slate-600 p-2 m-4" href='/'>
+                        {/* <Link className="bg-slate-300  hover:bg-green-400 text-slate-600 p-2 m-4" href='/'>
                             Home
-                        </Link>
+                        </Link> */}
                     </div>
                 </div></div>
             <Toaster>

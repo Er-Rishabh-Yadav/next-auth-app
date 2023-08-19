@@ -62,9 +62,9 @@ const HomePage = () => {
         alt="Mailtrap"
         />
 
-        <div className="flex items-center mt-6">
+        {/* <div className="flex items-center mt-6">
           <Link className="p-3 m-4 bg-slate-400 text-white hover:bg-yellow-600" href="/profile">Go to Profile</Link>
-        </div>
+        </div> */}
       </div>
       <Footer/>
     </div>
